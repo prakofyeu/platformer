@@ -11,6 +11,37 @@ class Player:
         self.speed = [10, 0]
         self.jump_power = 5
         self.standing = False
+        self.gravity = 0.1
+
+    def fall(self):
+        if not self.standing:
+            self.speed[1] += self.gravity
+            self.y += self.speed[1]
+            self.update_hitbox()
+
+    def platform_collision(self, platform):
+        if self.hitbox.colliderect(platform.hitbox):
+            if self.speed[1] > 0 and self.hitbox.bottom <= platform.hitbox.top + 10:
+                self.y = platform.y - self.size
+                self.speed[1] = 0
+                self.update_hitbox()
+                self.standing = True
+                return True
+        else:
+            self.standing = False
+            return False
+
+    def vertical_motion(self):
+        if not self.standing:
+            self.fall()
+
+    def jump(self):
+        if self.standing:
+            self.speed[1] = -self.jump_power
+            self.standing = False
+
+
+
 
     def move_right(self):
         if self.x < WIDTH - self.size:
