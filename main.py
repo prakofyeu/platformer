@@ -1,5 +1,5 @@
 import pygame
-
+from level1 import level1
 
 WIDTH = 400
 HEIGHT = 250
@@ -38,7 +38,7 @@ while running:
             if event.button == 1:
                 for i, button in enumerate(buttons):
                     if button.collidepoint(event.pos):
-                        print("IT WORKS 😂😂😂")
+                        exec(f"level{i+1}()")
 
     window.blit(background_image, (0, 0))
 

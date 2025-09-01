@@ -8,6 +8,7 @@ class Coin:
         self.image = pygame.transform.scale(pygame.image.load("coin1.png"), (self.size, self.size))
         self.hitbox = pygame.Rect(self.x, self.y, self.size, self.size)
 
+
 class Food:
     def __init__(self, x, y):
         self.x = x
@@ -25,6 +26,7 @@ class Portal:
         self.image = pygame.transform.scale(pygame.image.load("portal.png"), (self.size, self.size))
         self.hitbox = pygame.Rect(self.x, self.y, self.size, self.size)
 
+
 class Trap:
     def __init__(self, x, y):
         self.x = x
@@ -32,6 +34,7 @@ class Trap:
         self.size = 50
         self.image = pygame.transform.scale(pygame.image.load("trap.png"), (self.size, self.size))
         self.hitbox = pygame.Rect(self.x, self.y, self.size, self.size)
+
 
 class Platform:
     def __init__(self, x, y, width, height):

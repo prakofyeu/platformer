@@ -8,7 +8,7 @@ class Player:
         self.size = 50
         self.image = pygame.transform.scale(pygame.image.load("player.png"), (self.size, self.size))
         self.hitbox = pygame.Rect(self.x, self.y, self.size, self.size)
-        self.speed = [0, 0]
+        self.speed = [10, 0]
         self.jump_power = 5
         self.standing = False
 
